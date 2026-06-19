@@ -1,6 +1,6 @@
 package com.lianresdev.moviecrudsdk.movies.data.source
 
-import com.lianresdev.moviecrudsdk.movies.data.MovieDTO
+import com.lianresdev.moviecrudsdk.movies.data.model.MovieDTO
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Path

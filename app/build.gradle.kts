@@ -5,16 +5,14 @@ plugins {
 
 android {
     namespace = "com.lianresdev.moviecrudsdk"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    // 1. Forzamos la compilación con el SDK de Android 37 exigido por las librerías modernas
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.lianresdev.moviecrudsdk"
         minSdk = 24
-        targetSdk = 36
+        // 2. Emparejamos el targetSdk a 37 para evitar conflictos de comportamiento
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -30,16 +28,21 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         compose = true
     }
-}
+} // Aquí cierra correctamente el bloque android
 
 dependencies {
+    // 3. Agregamos las dependencias necesarias con la sintaxis estricta de Kotlin DSL
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
@@ -48,12 +51,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    // Retrofit para las peticiones HTTP
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-
-    // Convertidor de Gson para que Retrofit deserialice los JSON automáticamente
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
@@ -61,6 +58,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
-
 
 }

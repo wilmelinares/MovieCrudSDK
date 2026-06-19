@@ -1,0 +1,26 @@
+# Archivos de configuración de Android Studio y del sistema
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# Archivos específicos de IntelliJ / Android Studio
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/nav/
+.idea/assetWizardSettings.xml
+*.iml
+.idea/
+ 
+
+
+# Archivos de registro y temporales
+*.log
+.DS_Store
+
+# Archivos de dispositivos virtuales (Emuladores)
+*.hprof

@@ -1,4 +1,5 @@
-package com.lianresdev.moviecrudsdk.movies.data
+package com.lianresdev.moviecrudsdk.movies.data.model
+
 import com.google.gson.annotations.SerializedName
 
 data class MovieDTO(
